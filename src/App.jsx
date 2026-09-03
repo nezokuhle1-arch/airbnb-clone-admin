@@ -5,16 +5,19 @@ import CreateListings from './pages/CreateListings';
 import UpdateListings from './pages/UpdateListings';
 import Layout from './components/Layout';
 import Reservations from './pages/Reservations';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Login />} />
-        <Route path="/listings" element={<ViewListings />} />
-        <Route path="/create-listings" element={<CreateListings />} />
-        <Route path="/update-listings/:id" element={<UpdateListings />} />
-        <Route path="/reservations" element={<Reservations />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/listings" element={<ViewListings />} />
+          <Route path="/create-listings" element={<CreateListings />} />
+          <Route path="/update-listings/:id" element={<UpdateListings />} />
+          <Route path="/reservations" element={<Reservations />} />
+        </Route>
       </Route>
     </Routes>
   );
