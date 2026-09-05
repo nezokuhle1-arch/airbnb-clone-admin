@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../api/axios';
+import { Link } from 'react-router-dom';
 
 function ViewListings() {
     const [listings, setListings] = useState([]);
@@ -35,6 +36,7 @@ function ViewListings() {
                 <div key={listing.id}>
                     <h2>{listing.title}</h2>
                     <p>{listing.location} — R{listing.price}</p>
+                    <Link to={`/update-listings/${listing._id}`}>Edit</Link>
                     <button onClick={() => handleDelete(listing._id)}>Delete</button>
                 </div>
             ))}
