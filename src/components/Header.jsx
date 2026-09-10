@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import './Header.css';
 
 function Header() {
     const [showDropdown, setShowDropdown] = useState(false);
@@ -15,31 +16,35 @@ function Header() {
     
     
     return (
-        <header>
-            <Link to="/">Airbnb Admin</Link>
+        <header className="admin-header">
+            <div className="admin-header-inner container">
+                <Link to="/" className="admin-logo">
+                    airbnb <span className="logo-admin">admin</span>
+                </Link>
 
-            <nav>
-                <Link to="/listings">Listings</Link>
-                <Link to="/create-listings">Create Listings</Link>
-            </nav>
+                <nav className="admin-header-nav">
+                    <Link to="/listings">Listings</Link>
+                    <Link to="/create-listings">Create Listing</Link>
+                </nav>
 
-            {username ? (
-                <div>
-                <button onClick={() => setShowDropdown(!showDropdown)}>
+                {username ? (
+                <div className="admin-user-menu">
+                    <button className="admin-user-button" onClick={() => setShowDropdown(!showDropdown)}>
                     Hi, {username}
-                </button>
-                {showDropdown && (
-                    <div>
+                    </button>
+                    {showDropdown && (
+                    <div className="admin-dropdown">
                         <Link to="/reservations">View Reservations</Link>
-                        <button onClick={handleLogout}>Log Out</button>
+                        <button className="dropdown-logout" onClick={handleLogout}>Log Out</button>
                     </div>
-                )}
+                    )}
                 </div>
-            ) : (
-                <Link to="/">Become a Host</Link>
-            )}
+                ) : (
+                <Link to="/" className="admin-become-host-link">Become a Host</Link>
+                        )}
+                    </div>
         </header>
     );
-}
+};
 
 export default Header;

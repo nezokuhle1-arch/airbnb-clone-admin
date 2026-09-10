@@ -4,8 +4,10 @@ import Header from './Header.jsx';
 function Layout() {
     return (
         <>
-        <Header />
-        <Outlet />
+            <Header />
+            <main className="admin-main container">
+                <Outlet />
+            </main>
         </>
     );
 }
