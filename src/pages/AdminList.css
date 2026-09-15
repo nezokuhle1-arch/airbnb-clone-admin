@@ -1,0 +1,65 @@
+.admin-list-page h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+
+.admin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.admin-list-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-list-card-info h2 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.admin-list-card-info p {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+}
+
+.admin-list-card-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.admin-btn-secondary {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+}
+
+.admin-btn-secondary:hover {
+    background-color: var(--color-bg-secondary);
+}
+
+.admin-btn-danger {
+    background-color: var(--color-danger);
+    color: white;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.admin-btn-danger:hover {
+    opacity: 0.9;
+}

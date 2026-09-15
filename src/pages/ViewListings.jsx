@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../api/axios';
 import { Link } from 'react-router-dom';
+import './AdminList.css';
 
 function ViewListings() {
     const [listings, setListings] = useState([]);
@@ -25,21 +26,27 @@ function ViewListings() {
             await api.delete(`/accommodations/${id}`);
             setListings(listings.filter((listing) => listing._id !== id));
         } catch (error) {
-            alert(error.response ?.data?.message || 'Failed to delete listing');
+            alert(error.response?.data?.message || 'Failed to delete listing');
         }
     };
 
     return (
-        <div>
+        <div className="admin-list-page">
             <h1>Listings</h1>
-            {listings.map((listing) => (
-                <div key={listing.id}>
-                    <h2>{listing.title}</h2>
-                    <p>{listing.location} — R{listing.price}</p>
-                    <Link to={`/update-listings/${listing._id}`}>Edit</Link>
-                    <button onClick={() => handleDelete(listing._id)}>Delete</button>
-                </div>
-            ))}
+            <div className="admin-list">
+                {listings.map((listing) => (
+                    <div className="admin-list-card" key={listing._id}>
+                        <div className="admin-list-card-info">
+                            <h2>{listing.title}</h2>
+                            <p>{listing.location} — R{listing.price}</p>
+                        </div>
+                        <div className="admin-list-card-actions">
+                            <Link className="admin-btn-secondary" to={`/update-listings/${listing._id}`}>Edit</Link>
+                            <button className="admin-btn-danger" onClick={() => handleDelete(listing._id)}>Delete</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

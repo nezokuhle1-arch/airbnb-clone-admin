@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../api/axios';
+import './AdminForm.css';
 
 function UpdateListings() {
     const { id } = useParams();
@@ -48,12 +49,12 @@ function UpdateListings() {
             setError(error.response?.data?.message || 'Failed to update listing');
         }
     };
-    
-    if (!formData) return <p>Loading...</p>;
+
+    if (!formData) return <p className="admin-form-loading">Loading...</p>;
     return (
-        <form onSubmit={handleSubmit}>
-        <h1>Update Listings</h1>
-        {error && <p>{error}</p>}
+        <form className="admin-form" onSubmit={handleSubmit}>
+        <h1>Update Listing</h1>
+        {error && <p className="admin-form-error">{error}</p>}
 
         <input
                 type="text"
@@ -72,8 +73,8 @@ function UpdateListings() {
                 placeholder="Price per night"
                 required
             />
-            
-            <label>
+
+            <label className="admin-form-checkbox">
                 <input
                 type="checkbox"
                 name="enhancedCleaning"
@@ -173,7 +174,7 @@ function UpdateListings() {
                 placeholder="Amenities"
             />
 
-            <label>
+            <label className="admin-form-checkbox">
                 <input
                 type="checkbox"
                 name="selfCheckin"

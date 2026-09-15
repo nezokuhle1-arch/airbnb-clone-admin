@@ -1,0 +1,71 @@
+.admin-form {
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.admin-form h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.admin-form-error {
+    color: var(--color-danger);
+    font-size: 14px;
+}
+
+.admin-form-loading {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: 48px 0;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="number"],
+.admin-form input[type="file"],
+.admin-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--color-text);
+}
+
+.admin-form textarea {
+    resize: vertical;
+}
+
+.admin-form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.admin-form-checkbox input {
+    width: auto;
+}
+
+.admin-form button[type="submit"] {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.admin-form button[type="submit"]:hover {
+    opacity: 0.9;
+}

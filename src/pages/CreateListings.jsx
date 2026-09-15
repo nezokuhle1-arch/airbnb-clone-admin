@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
+import './AdminForm.css';
 
 function CreateListings () {
     const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ function CreateListings () {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         try {
             await api.post('/accommodations', {
                 ...formData,
@@ -49,11 +50,11 @@ function CreateListings () {
 
     };
 
-    
+
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>Create Listings </h1>
-            {error && <p>{error}</p>}
+        <form className="admin-form" onSubmit={handleSubmit}>
+            <h1>Create Listing</h1>
+            {error && <p className="admin-form-error">{error}</p>}
             <input
                 type="text"
                 name="title"
@@ -71,8 +72,8 @@ function CreateListings () {
                 placeholder="Price per night"
                 required
             />
-            
-            <label>
+
+            <label className="admin-form-checkbox">
                 <input
                 type="checkbox"
                 name="enhancedCleaning"
@@ -153,14 +154,6 @@ function CreateListings () {
                 name="serviceFee"
                 value={formData.serviceFee}
                 onChange={handleChange}
-                placeholder="Service Fee"
-            />
-
-            <input
-                type="number"
-                name="occupancyTaxes"
-                value={formData.occupancyTaxes}
-                onChange={handleChange}
                 placeholder="Occupancy Taxes"
             />
 
@@ -172,7 +165,7 @@ function CreateListings () {
                 placeholder="Amenities"
             />
 
-            <label>
+            <label className="admin-form-checkbox">
                 <input
                 type="checkbox"
                 name="selfCheckin"
