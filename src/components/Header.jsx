@@ -19,13 +19,15 @@ function Header() {
         <header className="admin-header">
             <div className="admin-header-inner container">
                 <Link to="/" className="admin-logo">
-                    airbnb <span className="logo-admin">admin</span>
+                    airbnb <span className="admin-logo-admin">admin</span>
                 </Link>
 
-                <nav className="admin-header-nav">
-                    <Link to="/listings">Listings</Link>
-                    <Link to="/create-listings">Create Listing</Link>
-                </nav>
+                {username && (
+                    <nav className="admin-header-nav">
+                        <Link to="/listings">Listings</Link>
+                        <Link to="/create-listings">Create Listing</Link>
+                    </nav>
+                )}
 
                 {username ? (
                 <div className="admin-user-menu">
